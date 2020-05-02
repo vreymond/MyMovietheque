@@ -8,6 +8,8 @@ services:
             - 3000:3000
         depends_on:
             - api
+        volumes:
+            - ./ui:/usr/src/app
         tty: true
     
     api:
@@ -17,6 +19,8 @@ services:
             - 8080:8080
         depends_on: 
             - database
+        volumes:
+            - ./api:/usr/src/app
         tty: true
 
     database:
