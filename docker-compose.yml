@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    ui:
+        container_name: 'movietheque-react'
+        build: ./ui
+        ports: 
+            - 3000:3000
+        depends_on:
+            - api
+    
+    api:
+        container_name: 'movietheque-express'
+        build: ./api
+        ports:
+            - 8080:8080
+        depends_on: 
+            - mongo
+
+    database:
+        image: mongo
+        container_name: 'movietheque-mongodb'
+        environment: 
+            - MONGO_INITDB_DATABASE: ${DB_NAME}
+            - MONGO_INITDB_ROOT_USERNAME: ${DB_ROOT_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        ports:
+            - 27017:27017
