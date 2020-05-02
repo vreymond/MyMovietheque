@@ -8,6 +8,7 @@ services:
             - 3000:3000
         depends_on:
             - api
+        tty: true
     
     api:
         container_name: 'movietheque-express'
@@ -15,14 +16,15 @@ services:
         ports:
             - 8080:8080
         depends_on: 
-            - mongo
+            - database
+        tty: true
 
     database:
         image: mongo
         container_name: 'movietheque-mongodb'
         environment: 
-            - MONGO_INITDB_DATABASE: ${DB_NAME}
-            - MONGO_INITDB_ROOT_USERNAME: ${DB_ROOT_USERNAME}
-            - MONGO_INITDB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            - MONGO_INITDB_DATABASE=${DB_NAME}
+            - MONGO_INITDB_ROOT_USERNAME=${DB_ROOT_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
         ports:
             - 27017:27017
