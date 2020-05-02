@@ -1,23 +1,27 @@
-const path = require("path");
-const nodeExternals = require("webpack-node-externals");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+require('dotenv').config()
+const nodeExternals = require('webpack-node-externals');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: {
-        main: "./index.js"
+        main: './index.js'
     },
-    target: "node",
+    target: 'node',
     externals: [nodeExternals()],
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 use: {
-                    laoder: "babel-laoder",
+                    laoder: 'babel-laoder',
                     options: {
                         presets: [
-                            "@babel/preset-env",
-                            "@babel/preset-react"
+                            '@babel/preset-env',
+                            '@babel/preset-react'
                         ]
                     }
                 }
