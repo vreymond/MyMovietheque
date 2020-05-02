@@ -5,11 +5,11 @@ WORKDIR /usr/src/app
 
 # Install all dependencies from package.json files
 COPY package*.json ./
-RUN npm install
+RUN npm install --silent
 
 # Copy source code in container
 COPY . .
 
 # Expose app to port and start application
 EXPOSE 8080
-CMD [ "npm", "start" ]
+#CMD [ "npm", "start" ]
