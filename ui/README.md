@@ -1,8 +1,8 @@
-# My Movietheque
+# UI / My Movietheque
 
 
 
-## Prerequisite
+## Run
 
 ## Contributor
 |<a href="https://github.com/vreymond"><img alt="Valentin Reymond" src="https://avatars2.githubusercontent.com/u/25683049?s=460&u=2601a55abad686c7bf9176391995a1e4cb73801f&v=4" width=100></a>|
