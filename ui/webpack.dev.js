@@ -1,0 +1,34 @@
+const path = require("path");
+const merge = require("webpack-merge");
+
+const commonWebpackFile = require("./webpack.common.js");
+
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = merge(commonWebpackFile, {
+    mode: "development",
+    devServer: {
+        contentBase: path.join(__dirname, "src"),
+        watchContentBase: true,
+        open: true,
+        hot: true,
+        port: 3000
+    },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "public/index.html"
+        })
+    ],
+});
