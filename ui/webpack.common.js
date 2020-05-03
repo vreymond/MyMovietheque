@@ -1,10 +1,7 @@
 const path = require('path');
-require('dotenv').config()
 const nodeExternals = require('webpack-node-externals');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: {
