@@ -8,12 +8,17 @@ const dbConnect = require('./src/middlewares/db-connect');
 const app = express();
 const PORT = 8080;
 
+// import routes
+const userRoutes = require('./src/routes/user');
+
 app.use(cors());
 app.use(helmet());
 
 app.get('/', function (req, res) {
   res.send('My Movietheque API');
-})
+});
+
+app.use('/user', userRoutes);
 
 dbConnect().then(() => {
   console.log(`Connection with the ${process.env.DB_NAME} established`);
