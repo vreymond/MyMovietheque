@@ -9,3 +9,14 @@ const User = require('../models/user');
         - user delete
 */
 
+exports.user_signup = (req, res, next) => {
+    console.log('User signup!');
+};
+
+exports.user_signin = (req, res, next) => {
+    console.log('User signin!');
+};
+
+exports.user_remove = (req, res, next) => {
+    console.log('User removed!');
+};
