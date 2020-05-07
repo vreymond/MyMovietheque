@@ -20,9 +20,6 @@ app.get('/', function (req, res) {
 
 app.use('/user', userRoutes);
 
-dbConnect().then(() => {
-  console.log(`Connection with the ${process.env.DB_NAME} established`);
-
 // Connection to db check
 dbConnect().then(() =>{
   console.log('Connection to my-movietheque databse established !');
