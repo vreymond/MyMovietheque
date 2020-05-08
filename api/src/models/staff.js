@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const actorSchema = mongoose.Schema({
+const staffSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     firstname: {
         type: String,
@@ -16,4 +17,4 @@ const actorSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Actor', actorSchema);
+module.exports = mongoose.model('Staff', staffSchema);
