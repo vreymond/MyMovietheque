@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 
 const actorSchema = mongoose.Schema({
-  firstname: {
-    type: String,
-    required: true,
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  nationality: {
-    type: String,
-    required: true
-  }
+    _id: mongoose.Schema.Types.ObjectId,
+    firstname: {
+        type: String,
+        required: true,
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
+    nationality: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Actor', actorSchema);
