@@ -14,3 +14,5 @@ const actorSchema = mongoose.Schema({
     required: true
   }
 });
+
+module.exports = mongoose.model('Actor', actorSchema);
