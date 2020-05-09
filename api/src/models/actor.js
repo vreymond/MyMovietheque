@@ -17,3 +17,5 @@ const actorSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Actor', actorSchema);
+
+//TODO: Link actor model to movie (array of movie entry)

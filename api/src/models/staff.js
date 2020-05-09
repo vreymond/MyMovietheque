@@ -18,3 +18,5 @@ const staffSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Staff', staffSchema);
+
+//TODO: Link staff model to movie (array of movie entry)

@@ -37,3 +37,5 @@ const movieSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Movie', movieSchema);
+
+// TODO: Removing director, producer, writer, actors. Use reference to other model
