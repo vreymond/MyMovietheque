@@ -21,18 +21,20 @@ const movieSchema = mongoose.Schema({
     rating: {
         type: String
     },
-    director: {
-        type: String,
-        required: true
-    },
-    producer: {
-        type: String
-    },
-    writer: {
-        type: [String]
-    },
-    actors: {
-        type: [String]
+    staff: {
+        director: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true
+        },
+        producer: {
+            type: mongoose.Schema.Types.ObjectId,
+        },
+        writer: {
+            type: [mongoose.Schema.Types.ObjectId],
+        },
+        actors: {
+            type: [mongoose.Schema.Types.ObjectId],
+        }
     }
 });
 
