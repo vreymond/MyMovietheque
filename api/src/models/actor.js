@@ -13,6 +13,11 @@ const actorSchema = mongoose.Schema({
     nationality: {
         type: String,
         required: true
+    },
+    movies: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Movie',
+      required: true
     }
 });
 
