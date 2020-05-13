@@ -21,6 +21,12 @@ const movieSchema = mongoose.Schema({
     rating: {
         type: String
     },
+    country: {
+        type: String
+    },
+    studio: {
+        type: String
+    },
     staff: {
         director: {
             type: mongoose.Schema.Types.ObjectId,
