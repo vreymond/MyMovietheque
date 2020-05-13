@@ -14,8 +14,14 @@ const staffSchema = mongoose.Schema({
     nationality: {
         type: String,
         required: true
+    },
+    movies: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Movie'
     }
 });
+
+const directorSchema = new Schema(staffSchema);
 
 module.exports = mongoose.model('Staff', staffSchema);
 

@@ -24,17 +24,25 @@ const movieSchema = mongoose.Schema({
     staff: {
         director: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: 'Director',
             required: true
         },
         producer: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: 'Producer'
         },
         writer: {
             type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Writer'
         },
-        actors: {
+        music: {
             type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Music'
         }
+    },
+    casting: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Actor'
     }
 });
 
