@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const
 const staffSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     firstname: {
@@ -21,8 +22,12 @@ const staffSchema = mongoose.Schema({
     }
 });
 
-const directorSchema = new Schema(staffSchema);
+let directorSchema, producerSchema, writerSchema, musicSchema;
+directorSchema = producerSchema = writerSchema = musicSchema = new Schema(staffSchema);
 
-module.exports = mongoose.model('Staff', staffSchema);
-
-//TODO: Link staff model to movie (array of movie entry)
+module.exports = {
+    Director: mongoose.model('Director', directorSchema),
+    Producer: mongoose.model('Producer', producerSchema),
+    Writer: mongoose.model('Writer', writerSchema),
+    Music: mongoose.model('Music', musicSchema)
+};
