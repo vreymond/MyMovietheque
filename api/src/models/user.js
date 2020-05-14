@@ -12,4 +12,6 @@ const userSchema = mongoose.Schema({
     }
 });
 
+// TODO: Add movies ref to user?
+
 module.exports = mongoose.model('User', userSchema);
