@@ -15,7 +15,7 @@ const actorSchema = mongoose.Schema({
         required: true
     },
     movies: {
-      type: [Schema.Types.ObjectId],
+      type: [mongoose.Schema.Types.ObjectId],
       ref: 'Movie',
       required: true
     }

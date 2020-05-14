@@ -3,7 +3,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const dbConnect = require('./src/middlewares/db-connect');
-const testroutes = require('./src/routes/init');
 
 const app = express();
 const PORT = 8080;
@@ -16,6 +15,7 @@ const staffRoutes = require('./src/routes/staff');
 
 app.use(cors());
 app.use(helmet());
+app.use(express.json());
 
 app.get('/', function (req, res) {
   res.send('My Movietheque API');

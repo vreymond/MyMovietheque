@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Movie = require('../models/movie');
 
 exports.add_movie = (req, res, next) => {
+    console.log(req.body);
     const movie = new Movie({
         _id: new mongoose.Types.ObjectId(),
         title: req.body.title
