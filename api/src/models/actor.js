@@ -13,7 +13,14 @@ const actorSchema = mongoose.Schema({
     nationality: {
         type: String,
         required: true
+    },
+    movies: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Movie',
+      required: true
     }
 });
 
 module.exports = mongoose.model('Actor', actorSchema);
+
+//TODO: Link actor model to movie (array of movie entry)
