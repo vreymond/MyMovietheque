@@ -21,19 +21,37 @@ const movieSchema = mongoose.Schema({
     rating: {
         type: String
     },
-    director: {
-        type: String,
-        required: true
-    },
-    producer: {
+    country: {
         type: String
     },
-    writer: {
-        type: [String]
+    studio: {
+        type: String
     },
-    actors: {
-        type: [String]
+    staff: {
+        director: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Director',
+            required: true
+        },
+        producer: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Producer'
+        },
+        writer: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Writer'
+        },
+        music: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Music'
+        }
+    },
+    casting: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Actor'
     }
 });
 
 module.exports = mongoose.model('Movie', movieSchema);
+
+// TODO: Removing director, producer, writer, actors. Use reference to other model

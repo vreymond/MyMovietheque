@@ -10,6 +10,9 @@ const PORT = 8080;
 
 // import routes
 const userRoutes = require('./src/routes/user');
+const movieRoutes = require('./src/routes/movie');
+const actorRoutes = require('./src/routes/actor');
+const staffRoutes = require('./src/routes/staff');
 
 app.use(cors());
 app.use(helmet());
@@ -19,6 +22,9 @@ app.get('/', function (req, res) {
 });
 
 app.use('/user', userRoutes);
+app.use('/movie', movieRoutes);
+app.use('/actor', actorRoutes);
+app.use('/staff', staffRoutes);
 
 // Connection to db check
 dbConnect().then(() =>{
