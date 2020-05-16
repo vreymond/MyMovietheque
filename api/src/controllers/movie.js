@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 const Movie = require('../models/movie');
 
-exports.movies_get_all = (req, res, next) => {
+exports.get_movies = (req, res, next) => {
     Movie.find()
         .select('_id title')
         .exec()
         .then(docs => {
             const response = {
                 count: docs.length,
-                products: docs.map(doc => {
+                movies: docs.map(doc => {
                     return {
                         _id: doc._id,
                         title: doc.title
