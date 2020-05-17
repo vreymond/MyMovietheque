@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const Movie = require('../models/movie');
 
+/* TODO: 
+        - update movie function
+        - delete movie function
+        - adding jwt and bcrypt
+*/
+
 exports.get_movies = (req, res, next) => {
     Movie.find()
         .select('_id title')
