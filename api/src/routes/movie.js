@@ -6,7 +6,7 @@ const MovieController = require('../controllers/movie');
 
 // TODO: movie routes
 
-router.get('/', MovieController.get_movies);
+router.get('/', MovieController.get_all_movies);
 
 router.post('/', MovieController.add_movie);
 

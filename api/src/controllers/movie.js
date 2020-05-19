@@ -8,7 +8,7 @@ const Movie = require('../models/movie');
         - adding jwt and bcrypt
 */
 
-exports.get_movies = (req, res, next) => {
+exports.get_all_movies = (req, res, next) => {
     Movie.find()
         .select('_id title')
         .exec()
@@ -18,7 +18,11 @@ exports.get_movies = (req, res, next) => {
                 movies: docs.map(doc => {
                     return {
                         _id: doc._id,
-                        title: doc.title
+                        title: doc.title,
+                        request: {
+                            type: 'GET',
+                            url: 'http://localhost:8080/' + doc._id
+                        }
                     }
                 })
             };
@@ -31,6 +35,26 @@ exports.get_movies = (req, res, next) => {
             })
         })
 };
+
+exports.get_movie = (req, res, next) => {
+    const movieID = req.params.movieID;
+    Movie.findById(movieID)
+        .select('_id title')
+        .exec()
+        .then( doc => {
+            if (doc) {
+                res.status(200).json({
+                    movie: doc,
+                    request: {
+                        type: 'GET',
+                        url: 'http://localhost:8080/' + doc._id
+                    }
+                })
+            }
+        }
+
+        )
+}
 
 exports.add_movie = (req, res, next) => {
     console.log(req.body);
@@ -47,7 +71,11 @@ exports.add_movie = (req, res, next) => {
                 message: 'Created movie successfully',
                 createdMovie: {
                     _id: result._id,
-                    title: result.title
+                    title: result.title,
+                    request: {
+                        type: 'POST',
+                        url: 'http://localhost:8080' + result._id
+                    }
                 }
             })
         })
