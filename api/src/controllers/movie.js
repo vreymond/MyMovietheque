@@ -49,11 +49,19 @@ exports.get_movie = (req, res, next) => {
                         type: 'GET',
                         url: 'http://localhost:8080/' + doc._id
                     }
-                })
+                });
             }
-        }
-
-        )
+            else {
+                res.status(404).json({
+                    status: '404',
+                    message: 'No movie found in database for provided id'
+                });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        })
 }
 
 exports.add_movie = (req, res, next) => {
