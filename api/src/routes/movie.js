@@ -5,6 +5,7 @@ const router = express.Router();
 const MovieController = require('../controllers/movie');
 
 // TODO: movie routes
+//       adding auth middleware
 
 router.get('/', MovieController.get_all_movies);
 
