@@ -94,3 +94,25 @@ exports.add_movie = (req, res, next) => {
             })
         });
 }
+
+exports.movie_delete = (req, res, next) => {
+    const movieID = req.params.movieID;
+
+    Movie.remove({_id: movieID})
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: 'Movie deleted',
+                request: {
+                    type: 'POST',
+                    url: 'http://localhost:8080'
+                }
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            })
+        });
+}
