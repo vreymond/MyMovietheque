@@ -95,6 +95,34 @@ exports.add_movie = (req, res, next) => {
         });
 }
 
+exports.update_movie = (req, res, next) => {
+    const movieID = req.params.movieID;
+    const updateOps = {};
+
+    for (const ops of req.body) {
+        updateOps[ops.propName] = ops.value;
+    }
+
+    Movie.update({_id: movieID}, {$set: updateOps})
+        .exec()
+        .then(result => {
+            console.log(res)
+            res.status(200).json({
+                message: 'Movie updated',
+                request: {
+                    type: 'Get',
+                    url: 'http://localhost:3000/' + movieID
+                }
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            })
+        });
+}
+
 exports.movie_delete = (req, res, next) => {
     const movieID = req.params.movieID;
 
