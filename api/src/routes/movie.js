@@ -13,4 +13,6 @@ router.post('/', MovieController.add_movie);
 
 router.get('/:movieID', MovieController.get_movie);
 
+router.patch('/:movieID', MovieController.update_movie);
+
 module.exports = router;
