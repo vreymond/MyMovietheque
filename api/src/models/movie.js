@@ -8,15 +8,15 @@ const movieSchema = mongoose.Schema({
     },
     date: {
         type: Number,
-        required: true
+        //required: true
     },
     duration: {
         type: Number,
-        required: true
+        //required: true
     },
     genre: {
         type: [String],
-        required: true
+        //required: true
     },
     rating: {
         type: String
@@ -31,7 +31,7 @@ const movieSchema = mongoose.Schema({
         director: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Director',
-            required: true
+            //required: true
         },
         producer: {
             type: mongoose.Schema.Types.ObjectId,
